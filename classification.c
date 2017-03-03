@@ -128,6 +128,8 @@ nb_doc sert à comptabiliser le nombre de couments du deuxième fichiers
 	int j, z, i;
 	int indice;
 	int nb_doc=0;
+	char erreur_parametres[256];
+	strcpy(erreur_parametres, "syntaxe  : ./classification base_d'apprentissage test\n");
 	
 
 /*VARIABLES CALCUL DE PROBABILITES
@@ -142,6 +144,16 @@ max a pour valeur la probabilité la plus haute trouvée pour le document d
 	long **teta, *Py, *Pyd, taille;
 	double bon=0;
 	int pres,p_max ;
+
+
+if(argc < 3) {
+	fprintf(stderr, erreur_parametres, strlen(erreur_parametres));
+	return 1;
+}
+
+
+
+
 
 
 

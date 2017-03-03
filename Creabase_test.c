@@ -16,6 +16,8 @@ int main(int argc, char *argv[]){
 	char nameb[10][6], namet[10][6];
 	double pourc;
 	int i, f_base, f_test;
+	char erreur_parametres[256];
+	strcpy(erreur_parametres, "syntaxe  : ./creation base_complete\n");
 
 	strcpy(nameb[0], "base1\0"); 
 	strcpy(namet[0], "test1\0");
@@ -46,6 +48,13 @@ int main(int argc, char *argv[]){
 
 	strcpy(nameb[9], "base0\0"); 
 	strcpy(namet[9],"test0\0");
+
+
+		if(argc < 2) {
+			fprintf(stderr, erreur_parametres, strlen(erreur_parametres));
+			return 1;
+		}
+
 
 	
 		//ouverture du fichiers BaseReuters
